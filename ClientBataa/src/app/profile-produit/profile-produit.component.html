@@ -1,0 +1,108 @@
+
+<div class="breadcrumb-option">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__links">
+                    <a class="text-decoration-none" routerLink="/"><i class="fa fa-home"></i> Accueil</a>
+                    <span>Produit</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="product-details spad">
+    <div *ngIf="!OnLoud || !OnLoud1 || !OnLoud2" >
+        <mat-spinner class="center-spinner"></mat-spinner>
+
+      </div>
+    <div *ngIf="OnLoud && OnLoud1 && OnLoud2" class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="image-container">
+                    <img [src]="currentImageSrc" alt="Image" class="image" />
+                    <div class="icon-container left">
+                        <button (click)="showPreviousImage()" class="icon">
+                          <i class="fas fa-chevron-left"></i>
+                        </button>
+                    </div>
+                    <div class="icon-container right">
+                        <button (click)="showNextImage()" class="icon">
+                          <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="col-lg-6">
+                <div class="product__details__text">
+                    <h3>{{dataa.nom}} </h3>
+                </div>
+                <div class="product__details__widget">
+                    <ul>
+                        <li>
+                            <span>Etat :</span>
+                            <p>{{dataa.etat_produit}}</p>
+                        </li>
+                        <li>
+                            <span>Date d'expiration</span>
+                            <p>{{dataa.date_expiration}}</p>
+                        </li>
+                        <li>
+                            <span>Description :</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="product__details__text">
+                    <p>{{dataa.description}}.</p>
+                    <div class="product__details__button">
+                        <div class="product__details__price mgPrix">
+                            <div *ngIf="AffichePrix==0">
+                                {{dataa.prix_unitaire | number: '1.0-0'}} DT
+                            </div>
+                            <div *ngIf="AffichePrix!=0">
+                                {{AffichePrix | number: '1.0-0'}} DT
+                            </div>
+
+                        </div>
+                        <div *ngIf="dataa.utilisateurID != idUserLocal ">
+                        <button (click)="enchere()" class="cart-btn mod">
+                            <span class="icon_bag_alt"></span> Enchèré
+                        </button>
+
+                      </div>
+                    </div>
+                    <div *ngIf="dataa.utilisateurID != idUserLocal ">
+                        <div class="spanEnch">
+                        <span>Si vous avez enchéri, vous avez augmenté le prix du produit de 10%.</span>
+                        </div>
+                    <div class="product__details__widget">
+
+                        <div class="blog__details__comment">
+                            <div class="blog__comment__item">
+                                <div class="blog__comment__item__pic">
+                                    <img class="imgUs" src="{{ vendeur.image_user }}" alt="">
+                                </div>
+                                <div class="blog__comment__item__text">
+                                    <h3>{{vendeur.nom_user +" "+ vendeur.prenom_user}}</h3>
+
+                                        <ul class="sizeText">
+                                            <li><strong>Email : </strong>{{ vendeur.user.email }}</li>
+                                            <li><strong>Telephone : </strong>{{ vendeur.telephone_user }}</li>
+                                        </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

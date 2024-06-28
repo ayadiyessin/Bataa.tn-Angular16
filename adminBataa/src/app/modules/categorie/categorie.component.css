@@ -1,0 +1,20 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+.marge-en-haut {
+  margin-top: 12px; /* Vous pouvez ajuster la valeur de la marge selon vos besoins */
+  /* padding-top: 20px;
+   */
+}
+.yellow-button {
+  background-color: #ffc107; /* Définir la couleur de fond */
+  color: white; /* Définir la couleur du texte */
+}
+.info-button {
+  background-color: #17a2b8; /* Définir la couleur de fond */
+  color: white; /* Définir la couleur du texte */
+}
+.center-spinner {
+  position: fixed;
+  top: 50%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+}

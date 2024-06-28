@@ -1,0 +1,77 @@
+<!-- Breadcrumb Begin -->
+<div class="breadcrumb-option">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__links">
+                    <a class="text-decoration-none" routerLink="/"><i class="fa fa-home"></i> Accueil</a>
+                    <span>Enchère / Liste des Enchères</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb End -->
+    <!-- Shop Section Begin -->
+    
+
+    <section class="shop spad">
+        <div *ngIf="!OnLoud" >
+            <mat-spinner class="center-spinner"></mat-spinner>
+    
+          </div>
+        <div *ngIf="OnLoud" class="container">
+            <div class="row">
+                <div class="col-lg-2 col-md-2">
+                </div>
+                
+                <div class="col-lg-8 col-md-8">
+                    <div *ngIf="nbAchat==0" class="checkout spad">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h4 class="coupon__link">Aucune produit enchèré.</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="nbAchat==-1" class="shop__cart__table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Produit</th>
+                                    <th>Prix</th>
+                                    <th>Etat</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let achat of dataa; let i = index">
+                                    <td class="cart__product__item">
+                                      <img [src]="images[i]" class="sizeIMG">
+                                      <div class="cart__product__item__title">
+                                        <h6>{{ achat.produit.nom }}</h6>
+                                      </div>
+                                    </td>
+                                    <td class="cart__price"> {{achat.prix_vente | number: '1.0-0'}} DT</td>
+                                    <div *ngIf="etatAchat[i] == 'ent'">
+                                        <td class="cart__total"><span class="Enattent">Enchère en cours</span></td>
+                                    </div>
+                                    <div *ngIf="etatAchat[i] == 'ter'">
+                                        <td class="cart__total"><span class="Danger">Surpassée</span></td>
+                                    </div>
+                                    <td class="cart__close">
+                                        <button (click)="view(achat.produitID.toString())">
+                                            <span class="fa fa-eye"></span>
+                                        </button>
+                                    </td>
+                                  </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Shop Section End -->
+

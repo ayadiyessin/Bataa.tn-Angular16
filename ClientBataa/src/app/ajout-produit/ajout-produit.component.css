@@ -1,0 +1,24 @@
+.btnEng {
+	display: flex;
+    justify-content: center; /* Centrer horizontalement */
+    align-items: center;
+	margin: 20px;
+}
+
+.btnEng button{
+	font-size: 14px;
+	color: #ffffff;
+	background: #ca1515;
+	font-weight: 600;
+	text-transform: uppercase;
+    text-decoration: none;
+	padding: 14px 30px 15px;
+	border-radius: 50px;
+	border: none;
+}
+.validFrom{
+  font-size: small;
+  color: red;
+  margin-bottom: 20px;
+}
+

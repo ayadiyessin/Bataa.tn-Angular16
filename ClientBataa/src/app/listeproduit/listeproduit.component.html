@@ -1,0 +1,86 @@
+<!-- Breadcrumb Begin -->
+<div class="breadcrumb-option">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__links">
+                    <a class="text-decoration-none" routerLink="/"><i class="fa fa-home"></i> Accueil</a>
+                    <span>Profile / Liste des Produits</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb End -->
+    <!-- Shop Section Begin -->
+
+
+    <section class="shop spad">
+        <div *ngIf="!OnLoud" >
+            <mat-spinner class="center-spinner"></mat-spinner>
+    
+          </div>
+        <div *ngIf="OnLoud" class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 verLeft">
+                    <div class="blog__sidebar">
+                        <div class="blog__sidebar__item">
+                            <div class="section-title">
+                                <h4>Profile</h4>
+                            </div>
+                            <ul class="padcont">
+                                <li><a class="ac" routerLink="/listproduit">Liste des Produits</a></li>
+                                <li><a routerLink="/listachat">Liste des Achats</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-9 col-md-9">
+                    <div class="droit">
+                        <a class="cart-btn" routerLink="/createProduit"> Ajouter un Produit</a>
+                    </div>
+                    <div *ngIf="nbP==0" class="checkout spad">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h4 class="coupon__link">Aucune produit acheter.</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="nbP==-1" class="shop__cart__table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Produit</th>
+                                    <th>Prix</th>
+                                    <th>Etat</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let produit of dataa; let i = index">
+                                    <td class="cart__product__item">
+                                      <img [src]="images[i]" class="sizeIMG">
+                                      <div class="cart__product__item__title">
+                                        <h6>{{ produit.nom }}</h6>
+                                      </div>
+                                    </td>
+                                    <td class="cart__price"> {{produit.prix_unitaire | number: '1.0-0'}} DT</td>
+                                    <td class="cart__total"><span class="Enattent">En attente</span></td>
+                                    <td class="cart__close">
+                                        <button (click)="view(produit.id)">
+                                            <span class="fa fa-eye"></span>
+                                        </button>
+                                    </td>
+                                  </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Shop Section End -->
+

@@ -1,0 +1,36 @@
+.verLeft{
+    margin-left: -40px;
+    margin-right: 40px;
+}
+.blog__sidebar__item ul li {
+	list-style: none;
+	line-height: 30px;
+}
+
+.blog__sidebar__item ul li a {
+	font-size: 14px;
+	color: #111111;
+	-webkit-transition: all, 0.3s;
+	-o-transition: all, 0.3s;
+	transition: all, 0.3s;
+    text-decoration: none;
+}
+
+.blog__sidebar__item ul li a:hover {
+	color: #ca1515;
+}
+.blog__sidebar__item ul li .ac{
+  color: #ca1515;
+}
+.image{
+  height: 350px;
+}
+
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+.center-spinner {
+  position: fixed;
+
+  left: 55%;
+  transform: translate(-50%, -50%);
+}

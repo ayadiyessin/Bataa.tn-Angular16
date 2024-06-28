@@ -1,0 +1,44 @@
+<!-- Banner Section Begin -->
+<section class="banner" style="background-image: url(assets/img/banner/banner-1.png);background-repeat: no-repeat;background-size: cover;">
+
+</section>
+<!-- Banner Section End -->
+
+<!-- Services Section Begin -->
+<section class="services spad">
+    <div *ngIf="!OnLoud || !OnLoud1 || !OnLoud2" >
+        <mat-spinner class="center-spinner"></mat-spinner>
+
+    </div>
+  <div *ngIf="OnLoud && OnLoud1 && OnLoud2" class="container">
+      <div class="row mg">
+          <div class="col-lg-4 col-md-4 col-sm-6">
+              <div class="services__item">
+                  <a class="text-decoration-none" routerLink="/tousMt">
+                      <i class="fa fa-car"></i>
+                      <h6>Moyen de Transport</h6>
+                      <p>({{nbt}}) Offres</p>
+                  </a>
+              </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-6">
+              <div class="services__item">
+                  <a class="text-decoration-none" routerLink="/tousMI">
+                      <i class="fa fa-desktop"></i>
+                      <h6>Matériel Informatique</h6>
+                      <p>({{nbt1}}) Offres</p>
+                  </a>
+              </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-6">
+              <div class="services__item">
+                  <a class="text-decoration-none" routerLink="/tousI">
+                      <i class="fa fa-building"></i>
+                      <h6>Immobilier</h6>
+                      <p>({{nbt2}}) Offres</p>
+                  </a>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>

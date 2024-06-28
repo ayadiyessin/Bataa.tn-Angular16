@@ -1,0 +1,90 @@
+<div class="breadcrumb-option">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-12">
+              <div class="breadcrumb__links">
+                  <a class="text-decoration-none" routerLink="/"><i class="fa fa-home"></i> Accueil</a>
+                  <a class="text-decoration-none" routerLink="/listproduit">Liste Produit</a>
+                  <span>Ajout Produit</span>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<section class="checkout spad">
+  <div class="container">
+
+      <form class="checkout__form" [formGroup]="form" (ngSubmit)="onsub()">
+          <div class="row">
+              <div class="col-lg-2"></div>
+              <div class="col-lg-8">
+                  <h5>Ajouter un Produit</h5>
+                  <div class="col-lg-12">
+                      <div class="checkout__form__input">
+                          <p>Nom de Produit <span>*</span></p>
+                          <input type="text" placeholder="Nom de produit" formControlName="nom">
+                          <span *ngIf="form.get('nom')?.invalid && form.get('nom')?.touched" class="validFrom">Remplir le Nom de Produit</span>
+
+
+                      </div>
+                      <div class="checkout__form__input">
+                          <p>Description <span>*</span></p>
+                          <input type="text" placeholder="Description" formControlName="description">
+                          <span *ngIf="form.get('description')?.invalid && form.get('description')?.touched" class="validFrom">Remplir la Description de Produit </span>
+                      </div>
+                      <div class="checkout__form__select">
+                          <p>Etat de Produit <span>*</span></p>
+                          <select formControlName="etat_produit" >
+                              <option value="0" disabled selected>Selectionner  l'état du produit</option>
+                              <option value="neuf">État comme neuf</option>
+                              <option value="moyen">État moyen</option>
+                              <option value="defectueux">État défectueux</option>
+                          </select>
+                      </div>
+                      <div class="checkout__form__input">
+                          <p>Prix <span>*</span></p>
+                          <input type="text" placeholder="Prix de Produit" formControlName="prix_unitaire">
+                          <span *ngIf="form.get('prix_unitaire')?.invalid && form.get('prix_unitaire')?.touched" class="validFrom">Remplir le Prix</span>
+                      </div>
+                      <div class="checkout__form__input">
+                          <p>Date d'expiration <span>*</span></p>
+                          <input type="date" formControlName="date_expiration">
+                          <span *ngIf="form.get('date_expiration')?.invalid && form.get('date_expiration')?.touched" class="validFrom">Choisir une Date d'expiration</span>
+                      </div>
+                      <div class="checkout__form__select">
+                          <p>Catégorie <span>*</span></p>
+                          <select formControlName="categorieID" (change)="GetrechercherProduits()">
+                             <option value="0" disabled selected>Selectionner une catégorie</option>
+                              <option *ngFor="let c of categ ; let i=index " [value]="c.id">{{c.nomcategorie}}</option>
+                          </select>
+                      </div>
+                      <div *ngIf="form.get('categorieID')?.value !==0">
+                        <div class="checkout__form__select">
+                            <p>Sous Catégorie <span>*</span></p>
+                            <select formControlName="scategorieID" >
+                              <option value="0" disabled selected>Selectionner une sous catégorie</option>
+                                <option *ngFor="let sc of dataaSC ; let i=index " [value]="sc.id">{{sc.nomscategorie}}</option>
+                            </select>
+                        </div>
+                    </div>
+
+                      <div class="checkout__form__input">
+                          <p>Image(s) de Produit <span>*</span></p>
+                          <button class="btn" [ngClass]="{ 'btn-primary': true, 'btn-disabled': isDisabled }"
+                              type="button" (click)="uploadWidget()">
+                              {{ isDisabled ? "Opening Widget" : "Choisir" }}
+                          </button>
+                      </div>
+
+
+                  </div>
+
+                  <div class="col-lg-12 btnEng">
+                      <button type="submit" [disabled]="form.invalid">Enregistrer</button>
+                  </div>
+              </div>
+          </div>
+      </form>
+  </div>
+</section>

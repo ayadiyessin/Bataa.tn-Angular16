@@ -1,0 +1,168 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1>Liste des acheteurs</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a routerLink="/dashboard">Accueil</a></li>
+              <li class="breadcrumb-item active"><a routerLink="/acheteurConfirmer">Acheteurs</a></li>
+              <li class="breadcrumb-item active"><a routerLink="/acheteurConfirmer">Acheteurs Confirmer</a></li>
+              <li class="breadcrumb-item active">Profile Acheteurs Confirmer</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <!-- /.container-fluid -->
+</section>
+
+<div *ngIf="!OnLoud && !OnLoud2" >
+  <mat-spinner class="center-spinner"></mat-spinner>
+
+</div>
+<div *ngIf="OnLoud && OnLoud2" >
+<!-- Main content -->
+<div class="row">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-10">
+    <!-- Widget: user widget style 1 -->
+    <div class="card card-widget widget-user">
+      <!-- Add the bg color to the header using any of the bg-info nbedel colour profile classes -->
+      <div class="widget-user-header  badge-success">
+        <h4 class="widget-user-desc">{{dataa.prenom_user}} {{dataa.nom_user}}</h4>
+        <h3 class="widget-user-username">{{dataa.user.email}}</h3>
+
+      </div>
+      <div class="widget-user-image">
+        <img class="img-circle elevation-2" src={{dataa.image_user}} style="width:100px; height: 100px;"
+          id="LOGO_ENT" alt="User Avatar">
+      </div>
+      <div class="card-footer">
+        <div class="row">
+          <div class="col-sm-4 border-right">
+            <div class="description-block">
+              <span class="description-text">Ville</span>
+              <h5 class="description-header"> {{dataa.ville_user}}</h5>
+            </div>
+            <!-- /.description-block -->
+          </div>
+          <!-- /.col -->
+          <div class="col-sm-4 border-right">
+            <div class="description-block">
+              <span class="description-text">Adresse</span>
+              <!-- <b><a href="" class="btn-link text-secondary"> -->
+                  <h5 class="description-header">{{dataa.adresse_user}}</h5>
+                <!-- </a></b> -->
+            </div>
+            <!-- /.description-block -->
+          </div>
+          <!-- /.col -->
+          <div class="col-sm-4">
+            <div class="description-block">
+              <span class="description-text">Numéro téléphone</span>
+              <h5 class="description-header">{{dataa.telephone_user}}</h5>
+            </div>
+            <!-- /.description-block -->
+          </div>
+
+
+          <!-- /.col -->
+        </div>
+        <br>
+
+        <div class="post"> </div>
+        <div *ngIf="verif">
+          <div class="card-body padding-top-reduced">
+
+            <mat-card class="w-100 padding-top-reduced">
+              <mat-card-content>
+                <h4 class="mb-56">Liste des produits acheters </h4>
+
+                <div class="table-responsive">
+                  <table mat-table [dataSource]="dataSource" class="text-nowrap w-100">
+
+                    <ng-container matColumnDef="id">
+                      <th mat-header-cell *matHeaderCellDef> Numéro </th>
+                      <td mat-cell class="fw-medium" *matCellDef="let element; let i = index"> {{i+1}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="nom">
+                      <th mat-header-cell *matHeaderCellDef> Nom </th>
+                      <td mat-cell *matCellDef="let element">
+                        <p class="mb-0 fw-medium">{{ element.produit.nom }}</p>
+
+                      </td>
+                    </ng-container>
+
+
+                    <ng-container matColumnDef="prix_unitaire">
+                      <th mat-header-cell *matHeaderCellDef> Prix  Unitaire </th>
+                      <td mat-cell *matCellDef="let element">
+                        <p class="mb-0 fw-medium">{{element.produit.prix_unitaire}}</p>
+                      </td>
+                    </ng-container>
+                    <ng-container matColumnDef="prix_enchere">
+                      <th mat-header-cell *matHeaderCellDef> Prix proposé </th>
+                      <td mat-cell *matCellDef="let element">
+                        <p class="mb-0 fw-medium">{{element.prix_vente}}</p>
+                      </td>
+                    </ng-container>
+                    <ng-container matColumnDef="etat_achat">
+                      <th mat-header-cell *matHeaderCellDef> État de l'enchère  </th>
+                      <td mat-cell *matCellDef="let element">
+                        <div *ngIf="(element.produit.date_expiration | slice:0:10) > (dateAujourdhui | date:'yyyy-MM-dd') && element.conf === 0  ">
+
+                          <p class="mb-0 fw-large badge bg-warning">enchère en cours</p>
+                        </div>
+                        <div *ngIf="(element.produit.date_expiration | slice:0:10) <= (dateAujourdhui | date:'yyyy-MM-dd') && element.conf === 0 ">
+                          <p class="mb-0 fw-medium badge bg-danger">surpassée</p>
+                        </div>
+                        <div *ngIf="element.conf === 1">
+                          <p class="mb-0 fw-medium badge bg-success">gagner l'enchère</p>
+                      </div>
+                      </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                  </table>
+                </div>
+              </mat-card-content>
+            </mat-card>
+
+
+
+
+          </div>
+      </div>
+      <div *ngIf="!verif">
+        <!-- Message en cas d'absence de données -->
+        <p class="no-data-message">Aucun produit publier.</p>
+      </div>
+        <!-- /.row -->
+      </div>
+
+      <!-- /.widget-user -->
+
+      <!-- /.content -->
+      <section class="content  ">
+        <form>
+          <!-- /.card-body -->
+          <div class="card-footer ">
+            <a class="btn btn-info  " routerLink="/acheteurConfirmer" style="margin-right: 5px;">
+              <i class="fas fa-less-than">
+              </i>
+
+            </a>
+
+          </div>
+        </form>
+
+
+      </section>
+    </div>
+  </div>
+</div>
+</div>

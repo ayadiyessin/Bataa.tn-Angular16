@@ -1,0 +1,201 @@
+<!-- <app-main-header></app-main-header>
+<app-main-sidebar></app-main-sidebar> -->
+<!-- Content Wrapper. Contains page content -->
+<!-- <div class="content-wrapper"> -->
+<!-- Content Header (Page header) -->
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row ">
+      <div class="col-sm-6">
+        <h1 class="m-0">Tableau de bord</h1>
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+
+          <li class="breadcrumb-item active">Tableau de bord</li>
+        </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+
+<!-- Main content -->
+<section class="content">
+  <div *ngIf=" !OnLoud1 || !OnLoud2  || !OnLoud4  || !OnLoud7 || !OnLoud || !OnLoud3 || !OnLoud5">
+    <mat-spinner class="center-spinner"></mat-spinner>
+
+  </div>
+  <div *ngIf=" OnLoud1 && OnLoud2  && OnLoud4  && OnLoud7 && OnLoud && OnLoud3 && OnLoud5">
+    <div class="container-fluid">
+      <!-- Small boxes (Stat box) -->
+      <div class="row">
+        <div class="col-lg-3 col-6">
+          <!-- small box -->
+          <div class="small-box bg-info">
+            <div class="inner">
+              <h3>{{ nbuserConf }}</h3>
+
+              <p>Acheteurs Confirmer</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-ios-people"></i>
+
+            </div>
+            <a routerLink="/acheteurConfirmer" class="small-box-footer">Plus d'informations <i
+                class="fas fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-6">
+          <!-- small box -->
+          <div class="small-box bg-success">
+            <div class="inner">
+              <h3>{{ nbprodconf }}</h3>
+
+              <p>Produit Enchére</p>
+            </div>
+            <div class="icon">
+              <i class="fas fas fa-cubes"></i>
+
+            </div>
+            <a routerLink="/produit" class="small-box-footer">Plus d'informations <i
+                class="fas fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-6">
+          <!-- small box -->
+          <div class="small-box bg-warning">
+            <div class="inner">
+              <h3>{{ nbCategiorieNONArch }}</h3>
+
+              <p>Categories Produits</p>
+            </div>
+            <div class="icon">
+              <i class="fas fa-list"></i>
+            </div>
+            <a routerLink="/categorie" class="small-box-footer">Plus d'informations <i
+                class="fas fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-6">
+          <!-- small box -->
+          <div class="small-box bg-danger">
+            <div class="inner">
+              <h3>{{ nbvendeur }}</h3>
+
+              <p>Vendeurs</p>
+            </div>
+            <div class="icon">
+              <i class="fas fa-wallet"></i>
+            </div>
+            <a routerLink="/vendeur" class="small-box-footer">Plus d'informations <i
+                class="fas fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+      </div>
+      <!-- /.row -->
+      <!-- <div class="row">
+          <div class="col-lg-3 col-6">
+            <!-- small box
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>{{ nbuserEnAtt }}</h3>
+
+                <p>Acheteurs En Attende</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-ios-people"></i>
+
+              </div>
+              <a routerLink="/acheteurNonconfirmer" class="small-box-footer">Plus d'informations <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col
+          <div class="col-lg-3 col-6">
+            <!-- small box
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>{{ nbprodEnAtt }}</h3>
+
+                <p>Produits En Attende</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-cubes"></i>
+
+              </div>
+              <a routerLink="/produitNonconfirmer" class="small-box-footer">Plus d'informations <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col
+          <div class="col-lg-3 col-6">
+            <!-- small box
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>{{ nbCatArch }}</h3>
+
+                <p>Categories Archiver</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-list"></i>
+              </div>
+              <a  class="small-box-footer">Plus d'informations <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col
+          <div class="col-lg-3 col-6">
+            <!-- small box
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3>{{ nbsousCat }}</h3>
+
+                <p>Sous Categories</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-folder"></i>
+              </div>
+              <a  class="small-box-footer">Plus d'informations <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col
+        </div> -->
+    </div>
+  </div>
+
+</section>
+<div *ngIf=" OnLoud1 && OnLoud2  && OnLoud4  && OnLoud7 && OnLoud && OnLoud3 && OnLoud5">
+<div class="row ssv">
+  <div class="col-md-6 ">
+    <h3 class="txtc"> Nomber des acheteurs par ville</h3>
+    <canvas class="tai" baseChart [type]="'pie'" [datasets]="chartDatapie" [labels]="chartLabelspie" [options]="chartOptions">
+    </canvas>
+  </div>
+  <div class="col-md-6 ">
+    <h3 class="txtc"> Nomber des produit par Categories</h3>
+    <canvas class="taill" baseChart [type]="'bar'" [datasets]="chartDatabar" [labels]="chartLabelsbar"
+      [options]="chartOptions">
+    </canvas>
+  </div>
+
+
+
+</div>
+</div>
+
+
+
+<!--
+      <div class="chart-wrapper">
+    <canvas baseChart
+    [datasets]="barChartData"
+    [labels]="barChartLabels"
+    [options]="barChartOptions"
+    [plugins]="barChartPlugins"
+    [legend]="barChartLegend"
+    [chartType]="barChartType">
+  </canvas>
+</div>
+    -->

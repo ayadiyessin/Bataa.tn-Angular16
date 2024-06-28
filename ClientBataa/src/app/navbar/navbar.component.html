@@ -1,0 +1,73 @@
+<!-- Header Section Begin -->
+<header class="header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-3 col-lg-2">
+                <div class="header__logo">
+                    <span class="logoSite"> BATA<span class="colLogo">A</span>.TN</span>
+                </div>
+            </div>
+            <div class="col-xl-6 col-lg-7">
+                <nav class="header__menu">
+                    <ul>
+                        <li class="active"><a class="text-decoration-none" routerLink="/">Accueil</a></li>
+                        <li><a class="text-decoration-none" routerLink="/tousMt">Moyen de Transport</a>
+                            <ul class="dropdown">
+                                <li><a routerLink="/moto">Moto</a></li>
+                                <li><a routerLink="/voiture">Voiture</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="text-decoration-none" routerLink="/tousMI">Matériel Informatique</a>
+                            <ul class="dropdown">
+                                <li><a routerLink="/ordinateur">Ordinateur</a></li>
+                                <li><a routerLink="/telephone">Tablette/Téléphone</a></li>
+                                <li><a routerLink="/autreInformatique">Autre</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="text-decoration-none" routerLink="/tousI">Immobilier</a>
+                            <ul class="dropdown">
+                                <li><a routerLink="/terrain">Terrain</a></li>
+                                <li><a routerLink="/bureau">Depot/Bureau</a></li>
+                                <li><a routerLink="/maison">Maison</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </nav>
+            </div>
+            <div class="col-lg-3">
+                
+                <div class="header__right">
+                    <div *ngIf="bool != 'true'" class="header__right__widget">
+                        <ul>
+                            <li>
+                                <a class="text-decoration-none" routerLink="/login2">
+                                    <i class="icon_lock_alt search-switch"></i> Connexion
+                                </a>
+                            </li>
+                        </ul>
+                        
+                    </div>
+                    <div *ngIf="bool == 'true' " class="header__right__widget">
+                        
+                      <ul>
+                        <li>
+                            <a class="text-decoration-none">
+                                <img class="imgUs" src="{{user.photoURL}}"/>
+                                <span class="username">{{user.displayName}}</span>
+                            </a>
+                            <ul class="dropdo2">
+                                <li><a routerLink="/listproduit">Profile</a></li>
+                                <li><a routerLink="/listench">Enchère</a></li>
+                                <li><a (click)="signout()">Déconnexion</a></li>
+                            </ul>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Header Section End -->

@@ -1,0 +1,10 @@
+.annuler-padding-haut {
+  padding-top: 0px;
+}
+.center-spinner {
+  position: fixed;
+  top: 50%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+}
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";

@@ -1,0 +1,107 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1>Liste des acheteurs</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a routerLink="/dashboard">Accueil</a></li>
+              <li class="breadcrumb-item active"><a routerLink="/acheteurNonconfirmer">Acheteurs</a></li>
+              <li class="breadcrumb-item active"><a routerLink="/acheteurNonconfirmer">Acheteurs En Attente</a></li>
+              <li class="breadcrumb-item active">Profile Acheteurs En Attente</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <!-- /.container-fluid -->
+</section>
+<div *ngIf="!OnLoud" >
+  <mat-spinner class="center-spinner"></mat-spinner>
+</div>
+<div *ngIf="OnLoud" >
+<!-- Main content -->
+<div class="row">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-10">
+    <!-- Widget: user widget style 1 -->
+    <div class="card card-widget widget-user">
+      <!-- Add the bg color to the header using any of the bg-info nbedel colour profile classes -->
+      <div class="widget-user-header  badge-warning">
+        <h4 class="widget-user-desc">{{dataa.prenom_user}} {{dataa.nom_user}}</h4>
+        <h3 class="widget-user-username">{{dataa.user.email}}</h3>
+
+      </div>
+      <div class="widget-user-image">
+        <img class="img-circle elevation-2" src={{dataa.image_user}} style="width:100px; height: 100px;"
+          id="LOGO_ENT" alt="User Avatar">
+      </div>
+      <div class="card-footer">
+        <div class="row">
+          <div class="col-sm-4 border-right">
+            <div class="description-block">
+              <span class="description-text">Ville</span>
+              <h5 class="description-header"> {{dataa.ville_user}}</h5>
+            </div>
+            <!-- /.description-block -->
+          </div>
+          <!-- /.col -->
+          <div class="col-sm-4 border-right">
+            <div class="description-block">
+              <span class="description-text">Adresse</span>
+              <!-- <b><a href="" class="btn-link text-secondary"> -->
+                  <h5 class="description-header">{{dataa.adresse_user}}</h5>
+                <!-- </a></b> -->
+            </div>
+            <!-- /.description-block -->
+          </div>
+          <!-- /.col -->
+          <div class="col-sm-4">
+            <div class="description-block">
+              <span class="description-text">Numéro téléphone</span>
+              <h5 class="description-header">{{dataa.telephone_user}}</h5>
+            </div>
+            <!-- /.description-block -->
+          </div>
+
+
+          <!-- /.col -->
+        </div>
+        <br>
+
+
+        <!-- /.row -->
+      </div>
+
+      <!-- /.widget-user -->
+
+      <!-- /.content -->
+      <section class="content ">
+        <form>
+          <!-- /.card-body -->
+          <div class="card-footer annuler-padding-haut">
+            <a class="btn btn-danger  float-right" href="#" >
+              <i class="fas fa-trash "></i>
+            </a>
+              <a (click)="confirmer(dataa.user.id)"  class="btn  btn-warning float-right" style="margin-right: 5px;" title="Confirmer">
+                <i class="fas fa-check">
+                  </i>
+              </a>
+
+            <a class="btn btn-info  " routerLink="/acheteurNonconfirmer" style="margin-right: 5px;">
+              <i class="fas fa-less-than">
+              </i>
+
+            </a>
+
+          </div>
+        </form>
+
+
+      </section>
+    </div>
+  </div>
+</div>
+</div>
+

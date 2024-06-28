@@ -1,0 +1,58 @@
+
+section 
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 75vh;
+}
+
+section .signin
+{
+  position: absolute;
+  width: 400px;
+  background: #fffdfd;  
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  border-radius: 4px;
+  box-shadow: 0 15px 35px rgba(0,0,0,9);
+}
+
+section .signin .content 
+{
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
+}
+
+section .signin .content .inputBox
+{
+  position: relative;
+  width: 100%;
+}
+section .signin .content .inputBox button 
+{
+  position: relative;
+  width: 100%;
+  background: #555555;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 1.5em;
+}
+
+.modImg{
+    height: 55px;
+    width: 55px;
+    padding: 10px;
+    border-radius: 8px;
+}

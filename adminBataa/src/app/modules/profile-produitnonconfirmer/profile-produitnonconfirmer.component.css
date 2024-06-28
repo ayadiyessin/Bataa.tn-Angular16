@@ -1,0 +1,28 @@
+.padding-top-reduced {
+  padding-top: -0px; /* Réglez cette valeur selon vos besoins */
+}
+.carousel-item img {
+  max-width: 300px; /* Réduire la largeur maximale à 100% du conteneur */
+  height: 400px; /* Limiter la hauteur maximale à 300 pixels */
+  margin: auto; /* Centrer l'image horizontalement */
+  margin-top: 30px;
+}
+#carouselExampleControls {
+  max-width: 300px; /* Réduire la largeur maximale du carrousel à 600 pixels */
+  max-height: 300px; /* Réduire la hauteur maximale du carrousel à 400 pixels */
+  margin: auto; /* Centrer le carrousel horizontalement */
+}
+.taille-image {
+  width: 150px; /* Remplacez 200px par la largeur souhaitée */
+  height: 150px; /* Remplacez 200px par la hauteur souhaitée */
+}
+.center-spinner {
+  position: fixed;
+  top: 50%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+}
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+.text-rouge {
+  color: red;
+}

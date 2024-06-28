@@ -1,0 +1,68 @@
+.image-container {
+    position: relative;
+  }
+
+  .image {
+    width: 100%; /* Pour que l'image remplisse la largeur de son conteneur */
+    height: 500px; /* Pour conserver les proportions de l'image */
+    display: block; /* Pour éviter tout espace blanc en dessous de l'image */
+  }
+
+
+
+  .icon-container {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .icon {
+    background-color: rgba(255, 255, 255, 0.7); /* Fond semi-transparent pour la visibilité */
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 10px; /* Espace autour des icônes */
+  }
+
+  .icon i {
+    font-size: 20px;
+  }
+
+  .left {
+    left: 0;
+  }
+
+  .right {
+    right: 0;
+  }
+
+  .imgUs{
+    height: 75px;
+    width: 75px;
+  }
+
+  .sizeText li{
+    font-size:medium;
+  }
+
+  .mod{
+    border: none;
+  }
+
+  .mgPrix{
+    padding-top: 10px;
+  }
+
+  .spanEnch {
+    margin-bottom: 10px;
+  }
+
+  @import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+.center-spinner {
+  position: fixed;
+
+  left: 55%;
+  transform: translate(-50%, -50%);
+}

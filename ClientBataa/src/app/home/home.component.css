@@ -1,0 +1,15 @@
+.mg{
+    padding-left: 120px;
+}
+.image{
+  height: 350px;
+}
+
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+.center-spinner {
+  position: fixed;
+
+  left: 55%;
+  transform: translate(-50%, -50%);
+}

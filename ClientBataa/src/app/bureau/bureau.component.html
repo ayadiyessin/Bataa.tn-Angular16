@@ -1,0 +1,138 @@
+<!-- Breadcrumb Begin -->
+<div class="breadcrumb-option">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__links">
+                    <a routerLink="/"><i class="fa fa-home"></i> Accueil</a>
+                    <span>Immobilier / Depot & Bureau</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb End -->
+    <!-- Shop Section Begin -->
+    <section class="shop spad">
+        <div *ngIf="!OnLoud || !OnLoud1" >
+            <mat-spinner class="center-spinner"></mat-spinner>
+    
+          </div>
+        <div *ngIf="OnLoud && OnLoud1" class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 verLeft">
+                    <div class="blog__sidebar">
+                        <div class="blog__sidebar__item">
+                            <div class="section-title">
+                                <h4>Sous Categories</h4>
+                            </div>
+                            <ul>
+                                <li><a routerLink="/tousI">Tous</a></li>
+                                <li><a routerLink="/terrain">Terrain <span>({{nb[0]}})</span></a></li>
+                                <li><a class="ac" routerLink="/bureau">Dépôt & Bureau <span>({{nb[1]}})</span></a></li>
+                                <li><a routerLink="/maison">Maison <span>({{nb[2]}})</span></a></li>
+                            </ul>
+                        </div>
+                        <div class="sidebar__sizes">
+                          <div class="section-title">
+                              <h4>Recherche par état de produits</h4>
+                          </div>
+                          <div class="checkout__form__select">
+                              <select  id="etatProduit" [(ngModel)]="etatProduit" (ngModelChange)="GetrechercherProduits()">
+                                  <option value="tous" >Tous</option>
+                                  <option value="neuf">État comme neuf</option>
+                                  <option value="moyen">État moyen</option>
+                                  <option value="defectueux">État défectueux</option>
+                              </select>
+                          </div>
+                      </div>
+                        <!-- <div class="sidebar__sizes">
+                            <div class="section-title">
+                                <h4>Recherche par Prix</h4>
+                            </div>
+                            <div class="checkout__form__select">
+                                <select >
+                                    <option value="0" disabled selected>Tous</option>
+                                    <option value="1">Entre 0 et 100 DT</option>
+                                    <option value="2">Entre 101 et 500 DT</option>
+                                    <option value="3">Plus de 500 DT</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="sidebar__sizes">
+                            <div class="section-title">
+                                <h4>Recherche par Ville</h4>
+                            </div>
+                            <div class="checkout__form__select">
+                                <select >
+                                    <option value="Tous" disabled selected>Tous</option>
+                                    <option value="Ariana">Ariana</option>
+                                    <option value="Béja">Béja</option>
+                                    <option value="Ben Arous">Ben Arous</option>
+                                    <option value="Bizerte">Bizerte</option>
+                                    <option value="Gabès">Gabès</option>
+                                    <option value="Gafsa">Gafsa</option>
+                                    <option value="Jendouba">Jendouba</option>
+                                    <option value="Kairouan">Kairouan</option>
+                                    <option value="Kasserine">Kasserine</option>
+                                    <option value="Kebili">Kebili</option>
+                                    <option value="La Manouba">La Manouba</option>
+                                    <option value="Le Kef">Le Kef</option>
+                                    <option value="Mahdia">Mahdia</option>
+                                    <option value="Médenine">Médenine</option>
+                                    <option value="Monastir">Monastir</option>
+                                    <option value="Nabeul">Nabeul</option>
+                                    <option value="Sfax">Sfax</option>
+                                    <option value="Sidi Bouzid">Sidi Bouzid</option>
+                                    <option value="Siliana">Siliana</option>
+                                    <option value="Sousse">Sousse</option>
+                                    <option value="Tataouine">Tataouine</option>
+                                    <option value="Tozeur">Tozeur</option>
+                                    <option value="Tunis">Tunis</option>
+                                    <option value="Zaghouan">Zaghouan</option>
+                                </select>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="col-lg-9 col-md-9" >
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6" *ngFor="let produit of dataa; let i=index " >
+
+                            <!-- <div class="product__item" >
+                                <div class="product__item__pic" style="background-image: url('assets/img/shop/shop-1.jpg');">
+                                    <ul class="product__hover">
+                                        <li><a routerLink="/profileProduit/{{produit.id}}"><span class="arrow_expand"></span></a></li>
+
+                                    </ul>
+                                </div>
+                                <div class="product__item__text">
+                                    <h6><a href="#">{{produit.nom}}  </a></h6>
+                                    <div class="product__price">{{produit.prix_unitaire}} </div>
+                                </div>
+                            </div> -->
+                            <div class="product__item" >
+                              <div class="product__item__pic">
+                                  <img [src]=img[i] alt="Image" class="image" />
+
+
+                                  <ul class="product__hover">
+                                      <li><a routerLink="/profileProduit/{{produit.id}}" class="image-popup"><span class="arrow_expand"></span></a></li>
+                                  </ul>
+                              </div>
+                              <div class="product__item__text">
+                                  <h6><a href="/profileProduit/{{produit.id}}">{{produit.nom}}</a></h6>
+                                  <div class="product__price">{{produit.prix_unitaire | number: '1.0-0'}} DT</div>
+                              </div>
+                          </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Shop Section End -->
+

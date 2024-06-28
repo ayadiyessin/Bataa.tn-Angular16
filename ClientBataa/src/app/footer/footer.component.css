@@ -1,0 +1,22 @@
+.logoSite{
+	font-family: "Segoe Script";
+	font-size: 24px;
+	line-height: 1.6;
+	letter-spacing: 0.1;
+	font-weight: bold;
+	color: #111111;
+}
+
+.colLogo{
+	color: red;
+}
+.marTop1{
+    margin-top: 32px;
+}
+.marTop2{
+    margin-top: 52px;
+}
+.colLogo1{
+	color: red;
+}
+

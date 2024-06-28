@@ -1,0 +1,65 @@
+<div class="my-primary-bg">
+    <h2 mat-dialog-title class="colTit">{{dataa.nom}}</h2>
+    <mat-dialog-content class="mat-typography">
+    <section class="product-details spad">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="image-container">
+                        <img [src]="currentImageSrc" alt="Image" class="image" />
+                        <div class="icon-container left">
+                            <button (click)="showPreviousImage()" class="icon">
+                            <i class="fas fa-chevron-left"></i>
+                            </button>
+                        </div>
+                        <div class="icon-container right">
+                            <button (click)="showNextImage()" class="icon">
+                            <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row padSous">
+                <div class="col-lg-12">
+                    <div class="product__details__text">
+                        <h3>{{dataa.nom}} </h3>
+                    </div>
+                    <div class="product__details__widget">
+                        <ul>
+                            <li>
+                                <span>Etat : </span>
+                                <p>{{dataa.etat_produit}}</p>
+                            </li>
+                            <li>
+                                <span>Date d'expiration : </span>
+                                <p>{{dataa.date_expiration}}</p>
+                            </li>
+                            <li>
+                                <span>Prix : </span>
+                                <div *ngIf="AffichePrix==0">
+                                    <p>{{dataa.prix_unitaire | number: '1.0-0'}} DT </p>
+                                </div>
+                                <div *ngIf="AffichePrix!=0">
+                                    <p>{{AffichePrix | number: '1.0-0'}} DT </p>
+                                </div>
+                                
+                            </li>
+                            <li>
+                                <span>Description : </span>
+                                <p>{{dataa.description}}.</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button  mat-button mat-dialog-close><span class="colTit">Annuler</span></button>
+    </mat-dialog-actions>
+</div>

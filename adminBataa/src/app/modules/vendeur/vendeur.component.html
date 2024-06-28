@@ -1,0 +1,148 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1>Vendeur</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a routerLink="/dashboard">Accueil</a></li>
+              <li class="breadcrumb-item active">Vendeur</li>
+              <li class="breadcrumb-item active">Vendeurs</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+  <div *ngIf="!OnLoud" >
+    <mat-spinner class="center-spinner"></mat-spinner>
+  </div>
+  <div *ngIf="OnLoud" >
+  <div class="container-fluid">
+    <!-- /.row -->
+
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title marge-en-haut">List des Vendeur</h3>
+            <form >
+              <mat-form-field  style="float: right" >
+                <!-- <mat-label >Filter</mat-label> -->
+                <input matInput (keyup)="applyFilter($event)" class="marge-en-haut" placeholder="recherche" #input>
+                <mat-icon matSuffix>search</mat-icon>
+                <!-- #input tsakar el input -->
+              </mat-form-field>
+          </form>
+          </div>
+
+          <!-- /.card-header -->
+          <div class="card-body table-responsive p-0">
+
+
+            <mat-card class="w-100">
+              <mat-card-content>
+
+                <div class="table-responsive">
+
+                  <table mat-table [dataSource]="datasource" matSort (matSortChange)="announceSortChange($event)">
+                    <!-- <table mat-table [dataSource]="dataSource" class="text-nowrap w-100"> -->
+
+                    <!-- Id Column -->
+                    <ng-container matColumnDef="id">
+          <th mat-header-cell mat-sort-header *matHeaderCellDef> Numéro </th>
+          <td mat-cell class="fw-medium" *matCellDef="let element; let i = index"> {{i+1}} </td>
+        </ng-container>
+
+                    <!-- Nom Column -->
+                    <ng-container matColumnDef="nom">
+                      <th mat-header-cell mat-sort-header *matHeaderCellDef> Nom </th>
+                      <td mat-cell *matCellDef="let element">{{ element.utilisateur.nom_user
+                      }}
+                        <!-- <p class="mb-0 fw-normal op-5">{{ element.work }}</p> -->
+                      </td>
+                    </ng-container>
+
+
+                    <!-- Prenom Column -->
+                    <ng-container matColumnDef="prenom">
+                      <th mat-header-cell mat-sort-header *matHeaderCellDef> Prénom </th>
+                      <td mat-cell *matCellDef="let element">{{element.utilisateur.prenom_user}}
+                      </td>
+                    </ng-container>
+
+                    <!-- Ville Column -->
+                    <ng-container matColumnDef="ville">
+                      <th mat-header-cell mat-sort-header *matHeaderCellDef> Ville </th>
+                      <td mat-cell *matCellDef="let element">
+                        <!-- <span class="badge {{element.badge}} rounded-pill">{{element.priority}}</span> -->
+                        {{element.utilisateur.ville_user}}
+                      </td>
+                    </ng-container>
+
+                    <!-- Adresse Column -->
+                    <ng-container matColumnDef="adresse">
+                      <th mat-header-cell mat-sort-header *matHeaderCellDef> Adresse </th>
+                      <td mat-cell *matCellDef="let element">
+                        <!-- <span class="badge {{element.badge}} rounded-pill">{{element.priority}}</span> -->
+                        {{element.utilisateur.adresse_user}}
+                      </td>
+                    </ng-container>
+
+
+                    <!-- Telephone Column -->
+                    <!-- <ng-container matColumnDef="telephone">
+          <th mat-header-cell mat-sort-header *matHeaderCellDef> Téléphone </th>
+          <td mat-cell *matCellDef="let element">
+
+            <p class="mb-0 fw-medium op-5">{{element.telephone}}</p>
+          </td>
+        </ng-container> -->
+
+                    <!-- Action Column -->
+                    <ng-container matColumnDef="action">
+                      <th mat-header-cell *matHeaderCellDef> action </th>
+                      <td mat-cell *matCellDef="let element">
+                        <!-- <p class="mb-0 fw-medium">{{element.action}}</p> -->
+                        <button routerLink="/Profilevendeur/{{element.utilisateur.id}}" mat-mini-fab class="mb-8 me-8" color="primary" title="profile">
+                          <mat-icon aria-label="Profile" class="mat-icon-no-color">person</mat-icon>
+                        </button>
+                        <!-- <button mat-mini-fab class="mb-8 me-8">
+              <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+              <mat-icon aria-label="Example icon button with a edit icon">edit</mat-icon>
+            </button>
+            <button mat-mini-fab class="mb-8 me-8" color="warn">
+              <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+              <mat-icon aria-label="Example icon button with a delete icon">delete</mat-icon>
+            </button> -->
+                      </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                  </table>
+                  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+                    aria-label="Select page of periodic elements">
+                  </mat-paginator>
+                </div>
+              </mat-card-content>
+            </mat-card>
+
+
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+      </div>
+    </div>
+    <!-- /.row -->
+  </div>
+</div>
+  <!-- /.container-fluid -->
+</section>
+<!-- /.content -->

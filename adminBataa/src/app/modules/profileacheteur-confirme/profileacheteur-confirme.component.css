@@ -1,0 +1,16 @@
+.padding-top-reduced {
+  padding-top: -0px; /* Réglez cette valeur selon vos besoins */
+}
+.no-data-message {
+  font-size: 16px;
+  color: #888; /* Couleur de texte grise */
+  margin-top: 50px; /* Marge supérieure */
+  margin-left: 40%;
+}
+.center-spinner {
+  position: fixed;
+  top: 50%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+}
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
